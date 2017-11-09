@@ -1,22 +1,23 @@
 $(document).ready(function(){
 	
+	
 
-	var randomUserAPI = 'https://randomuser.me/api/?results=3&nat=us';
+	var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us';
 	var randomUserOptions = {
 		dataType: 'json'
 	};//end AJAX
-	 function showData(data){
+	 function employeeData(data){
 	 		
-
-	 		$.each(data.results, function(i, picture){
-	 			var image = data.results[i].picture;
-	 			console.log(image);
-	 			
-	 		});// end of the EACH
-	 		// $('#employee-card').html(userPhoto);
-	 		console.log(data);
+		let employeeDetails = data.results;
+		console.log(employeeDetails);
+		for(let i=0; i<employeeDetails.length; i++){
+			let member = employeeDetails[i];
+			let image = member.picture.large;
+			console.log(image);
+		};
+	 		
 	 		
 	 		
 	 }
-	$.getJSON(randomUserAPI, randomUserOptions, showData);
+	$.getJSON(randomUserAPI, randomUserOptions, employeeData);
 });
