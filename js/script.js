@@ -13,7 +13,10 @@ $(document).ready(function(){
 		for(let i=0; i<employeeDetails.length; i++){
 			let member = employeeDetails[i];
 			let image = member.picture.large;
-			console.log(image);
+			let firstName = member.name.first;
+			let lastName = member.name.last;
+			let Name = firstName + '' + lastName;
+			console.log(Name);
 		};
 	 		
 	 		
