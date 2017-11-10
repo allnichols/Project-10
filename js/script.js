@@ -15,8 +15,15 @@ $(document).ready(function(){
 			let image = member.picture.large;
 			let firstName = member.name.first;
 			let lastName = member.name.last;
-			let Name = firstName + '' + lastName;
-			console.log(Name);
+			let Name = firstName + ' ' + lastName;
+			let phone = member.phone;
+			let email = member.email;
+			let city = member.location.city;
+			let street = member.location.street;
+			let state = member.location.state;
+			let zip = member.location.postcode;
+			let address = street +', ' + state + ' ' + zip;
+			console.log(address);
 		};
 	 		
 	 		
