@@ -1,8 +1,24 @@
 div {
-  width: 90%;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 0 auto;
   border: 1px solid lightgrey; }
+
+.member {
+  width: 90%;
+  border: 2px solid #f3f2f2;
+  margin: 3px auto; }
+
+* {
+  box-sizing: border-box; }
+
+h1 {
+  padding: 15px;
+  margin: 10px auto; }
+
+img {
+  border-radius: 100%; }
 
 html {
   font-family: sans-serif;
@@ -183,15 +199,5 @@ table {
 td,
 th {
   padding: 0; }
-
-* {
-  box-sizing: border-box; }
-
-h1 {
-  padding: 15px;
-  margin: 10px auto; }
-
-img {
-  border-radius: 100%; }
 
 /*# sourceMappingURL=application.css.map */
