@@ -1,20 +1,20 @@
 $(document).ready(function(){
 	
-	var photos = [];
+	const photos = [];
 	const names = [];
 	const number = [];
 	const emails = [];
 	const cities = [];
 	const residence = [];
 	
-	const details = {
-		image: photos,
-		name: names,
-		numbers: number,
-		city:cities
-	};
+	// const details = {
+	// 	image: photos,
+	// 	name: names,
+	// 	numbers: number,
+	// 	city:cities
+	// };
 	
-	console.log(details);
+	//console.log(details);
 
 	var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us';
 	var randomUserOptions = {
@@ -46,22 +46,26 @@ $(document).ready(function(){
 			residence.push(address);
 		};
 
-		// function employeeCard(){
-		// 	for (var i = 0; i < length; i++) {
-				
-		// 	}
-		// }
-
-	function test(){
-		for(var i = 0; i < photos.length; i++){
+		function test(){
+			var card = '<section>';
+		for(var i = 0; i < photos.length ; i++){
+		    card += '<div class="member">';
+			card += '<img src="' + photos[i] +'">';
+			card += '</div>';
 			console.log(photos[i]);
 		}
+			card += '</section>';
+		document.getElementById("wrapper").innerHTML = card;
 	}
 
-	//test();
+	test();
+
+
 	
 			
 	 }// end of employeeData.
+
+	 	
 
 	$.getJSON(randomUserAPI, randomUserOptions, employeeData);
 });
