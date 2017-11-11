@@ -1,14 +1,20 @@
 $(document).ready(function(){
 	
-	const photos = [];
+	var photos = [];
 	const names = [];
 	const number = [];
 	const emails = [];
 	const cities = [];
 	const residence = [];
 	
-	console.log(names);
-
+	const details = {
+		image: photos,
+		name: names,
+		numbers: number,
+		city:cities
+	};
+	
+	console.log(details);
 
 	var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us';
 	var randomUserOptions = {
@@ -40,14 +46,19 @@ $(document).ready(function(){
 			residence.push(address);
 		};
 
+		// function employeeCard(){
+		// 	for (var i = 0; i < length; i++) {
+				
+		// 	}
+		// }
 
 	function test(){
-		for(var i = 0; i < names.length; i++){
-			console.log(names[i]);
+		for(var i = 0; i < photos.length; i++){
+			console.log(photos[i]);
 		}
 	}
 
-	test();
+	//test();
 	
 			
 	 }// end of employeeData.
