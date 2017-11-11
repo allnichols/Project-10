@@ -1,12 +1,13 @@
 $(document).ready(function(){
 	
-	
 	const photos = [];
 	const names = [];
 	const number = [];
 	const emails = [];
 	const cities = [];
 	const residence = [];
+	
+	console.log(names);
 
 
 	var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us';
@@ -37,13 +38,20 @@ $(document).ready(function(){
 			emails.push(email);
 			cities.push(city);
 			residence.push(address);
-			
-		
 		};
-		
-			console.log(names, photos, number, emails, cities, residence);
-	 }
 
+
+	function test(){
+		for(var i = 0; i < names.length; i++){
+			console.log(names[i]);
+		}
+	}
+
+	test();
+	
+			
+	 }// end of employeeData.
 
 	$.getJSON(randomUserAPI, randomUserOptions, employeeData);
 });
+

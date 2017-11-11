@@ -2,7 +2,6 @@
 
 
 
-
 @mixin mq($break) {
   @if $break == "small" {
     @media (min-width: $brkpoint--sm){
