@@ -30,10 +30,13 @@ $(document).ready(function(){
 
 		var overlay = document.getElementById("overlay");
 		var modal = document.getElementsByClassName("modal")[0];
+		var close = document.getElementsByClassName("close")[0];
 		
-		overlay.onclick = function() {
-			modal.style.display = "block";
-		}
+		overlay.addEventListener("click", function(){
+			modal.style.display  = "block";
+		});
+
+		close.addEventListener("click", () => modal.style.display = "none");
 
 
 		// for (var i = 0; i < employeeDetails.length; i++) {
