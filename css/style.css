@@ -1,0 +1,36 @@
+* {
+	box-sizing:border-box;
+}
+
+h1 {
+	padding:15px;
+	margin:10px auto;
+}
+
+img {
+	border-radius:100%;
+}
+
+p {
+	font-size: 15px;
+}
+
+
+
+.member {
+	width:300px;
+	border:2px solid #f3f2f2;
+	margin: 3px;
+}
+
+
+
+
+/*$border-grey	:#f3f2f2;*/
+
+#wrapper {
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	margin:0 auto;
+}
