@@ -30,6 +30,7 @@ $(document).ready(function(){
 
 		var overlay = document.getElementById("overlay");
 		var modal = document.getElementsByClassName("modal")[0];
+		
 		overlay.onclick = function() {
 			modal.style.display = "block";
 		}
