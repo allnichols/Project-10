@@ -31,9 +31,14 @@ $(document).ready(function(){
 		var overlay = document.getElementById("overlay");
 		var modal = document.getElementsByClassName("modal")[0];
 		var close = document.getElementsByClassName("close")[0];
+		var content = document.getElementsByClassName("modal-content")[0];
+		var info = overlay.innerHTML;
+		console.log(overlay.innerHTML)
 		
 		overlay.addEventListener("click", function(){
 			modal.style.display  = "block";
+			content.innerHTML += info;
+			
 		});
 
 		close.addEventListener("click", () => modal.style.display = "none");
