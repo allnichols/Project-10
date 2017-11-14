@@ -2,8 +2,9 @@ $(document).ready(function(){
 	const employeesContainer = document.getElementById("wrapper");
 		
 	
-	
-	
+	//array 
+	const employeeInfo = [];
+
 					// closing the modal
 					var close = document.getElementsByClassName("close")[0];
 
@@ -25,6 +26,7 @@ $(document).ready(function(){
 									let state = member.location.state;
 									let postcode = member.location.postcode;
 
+									
 
 									employeeInfo.push({
 								"image": picture,
@@ -40,9 +42,13 @@ $(document).ready(function(){
 								}
 					 }// end of employeeData.
 
-	const employeeInfo = [];
+	
+	
+	
 	console.log(employeeInfo);
-	console.log(employeeInfo[0]);
+
+
+	
 
 
 
