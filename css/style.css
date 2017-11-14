@@ -16,6 +16,12 @@ p {
 	font-size: 15px;
 }
 
+hr {
+	background-color: blue;
+	font-size: 5px;
+	width: 87%;
+}
+
 #wrapper {
 	display:flex;
 	flex-direction:column;
@@ -35,7 +41,7 @@ p {
 
 /*Modal*/
 
-.modal {
+#modal {
 	display: none;
 	position: fixed;
 	z-index: 100;
@@ -48,14 +54,19 @@ p {
 	background-color: rgba(0,0,0,0.4);
 }
 
+
+
 /*Modal content*/
 
-.modal-content {
-	background-color: white;
-	margin: 15% auto;
-	border: 1px solid black;
+.extraInfo {
+	
+	background-color: #fefefe;
+	margin: 20% auto; 
+	padding: 20px;
+	border: 1px solid white;
 	width: 80%;
 }
+
 
 .close {
 	color: black;
