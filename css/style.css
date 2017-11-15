@@ -54,18 +54,21 @@ hr {
 	background-color: rgba(0,0,0,0.4);
 }
 
-
+.modal-card{
+	background-color: white;
+	margin: 20% auto; 
+	padding: 20px;
+	border: 1px solid black;
+	width: 80%;
+}
 
 /*Modal content*/
 
-.extraInfo {
-	
-	background-color: #fefefe;
-	margin: 20% auto; 
-	padding: 20px;
-	border: 1px solid white;
-	width: 80%;
+.extra {
+	display: none;
 }
+
+
 
 
 .close {
