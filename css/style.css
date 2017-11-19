@@ -64,8 +64,8 @@ hr {
 
 /*Modal content*/
 
-.extra {
-	display: none;
+#model-content {
+	display: block;
 }
 
 
