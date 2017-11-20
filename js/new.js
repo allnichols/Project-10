@@ -49,9 +49,11 @@ var options = {
 
 						let cardHtml = '<div class="member">';
 							cardHtml += '<img id="image" src="' + data.picture.large + '">';
-							cardHtml += '<p>' + data.name.first + " " + data.name.last + '</p>';
-							cardHtml += '<p>' + data.email + '</p>';
-							cardHtml += '<p>' + data.location.city + '</p>';
+							cardHtml += '<ul class="info">';
+							cardHtml += '<li class="name">' + data.name.first + " " + data.name.last + '</li>';
+							cardHtml += '<li class="email">' + data.email + '</li>';
+							cardHtml += '<li class="city">' + data.location.city + '</li>';	
+							cardHtml += '</ul>';
 							cardHtml += '<p class="hidden">' + data.cell + '</p>';	
 							cardHtml += '<p class="hidden">' + data.location.street + " " + ", " + data.location.state + " " + data.location.postcode + '</p>';
 							cardHtml += '<p class="hidden">' + data.dob + '</p>';
@@ -69,20 +71,23 @@ var options = {
 						let targetImg		= e.target.querySelector("img");
 						let image			= targetImg.src;
 
-						let targetName 		= e.target.querySelectorAll("p")[0];
+						let targetName 		= e.target.querySelectorAll("li")[0];
 						let name 			= targetName.innerHTML;
 
-						let targetEmail 	= e.target.querySelectorAll("p")[1];
+						let targetEmail 	= e.target.querySelectorAll("li")[1];
 						let email 			= targetEmail.innerHTML;
 
-						let targetCity 		= e.target.querySelectorAll("p")[2];
+						let targetCity 		= e.target.querySelectorAll("li")[2];
 						let city 			= targetCity.innerHTML;
 
-						let targetCell		= e.target.querySelectorAll("p")[3];
+						let targetCell		= e.target.querySelectorAll("p")[0];
 						let cell 			= targetCell.innerHTML;
 
-						let targetAdd		= e.target.querySelectorAll("p")[4];
+						let targetAdd		= e.target.querySelectorAll("p")[1];
 						let address 		= targetAdd.innerHTML;
+
+						let targetDOB		= e.target.querySelectorAll("p")[2];
+						let dob 			= targetDOB.innerHTML;
 
 						overlay.style.display = "block";
 						
@@ -95,11 +100,12 @@ var options = {
 						 	modalHtml += '<hr>';
 						 	modalHtml += '<p>' + cell + '</p>';
 						 	modalHtml += '<p>' + address + '</p>';
+						 	modalHtml += '<p>' + dob + '</p>';
 
 
 						$("#modal-content").append(modalHtml);
 
-						console.log(image);
+						
 						}
 						
 					});
