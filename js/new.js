@@ -13,8 +13,7 @@ var options = {
 					var close 		= document.getElementsByClassName('close')[0];
 					var modal 		= document.getElementById('modal-content');
 					var info		= [];
-					var memberTotal = 12;
-					console.log(info);
+					
 				
 					
 					
@@ -31,7 +30,7 @@ var options = {
 								
 								memberCard(person);
 								//modalContent(person);
-								// console.log(address);
+								 // console.log(person.dob);
 
 								info.push({
 									"index" 	: i,
@@ -49,10 +48,13 @@ var options = {
 					function memberCard(data){
 
 						let cardHtml = '<div class="member">';
-							cardHtml += '<img src="' + data.picture.large + '">';
+							cardHtml += '<img id="image" src="' + data.picture.large + '">';
 							cardHtml += '<p>' + data.name.first + " " + data.name.last + '</p>';
 							cardHtml += '<p>' + data.email + '</p>';
 							cardHtml += '<p>' + data.location.city + '</p>';
+							cardHtml += '<p class="hidden">' + data.cell + '</p>';	
+							cardHtml += '<p class="hidden">' + data.location.street + " " + ", " + data.location.state + " " + data.location.postcode + '</p>';
+							cardHtml += '<p class="hidden">' + data.dob + '</p>';
 							cardHtml += '</div>';
 
 
@@ -60,38 +62,53 @@ var options = {
 					}
 					//end of card creation
 
-				
-
-					function modalContent(data){
-							let cardHtml = '<div class="member">';
-							cardHtml += '<img src="' + data.picture.large + '">';
-							cardHtml += '<p>' + data.name.first + " " + data.name.last + '</p>';
-							cardHtml += '<p>' + data.email + '</p>';
-							cardHtml += '<p>' + data.location.city + '</p>';
-							cardHtml += '</div>';
-		
-							$("#modal-content").append(cardHtml);
-					}	
-					//opening the modal 
+	
 
 				cardWrapper.addEventListener('click', (e) =>{
 					if(e.target.className == 'member') {
-						let target = e.target;
-						let targetID = $(target).html();
-						//modalContent(info[targetID]);
-						console.log(targetID);
-					} 
+						let targetImg		= e.target.querySelector("img");
+						let image			= targetImg.src;
 
-				})
+						let targetName 		= e.target.querySelectorAll("p")[0];
+						let name 			= targetName.innerHTML;
 
-					
-								
-				
-					
-														
+						let targetEmail 	= e.target.querySelectorAll("p")[1];
+						let email 			= targetEmail.innerHTML;
+
+						let targetCity 		= e.target.querySelectorAll("p")[2];
+						let city 			= targetCity.innerHTML;
+
+						let targetCell		= e.target.querySelectorAll("p")[3];
+						let cell 			= targetCell.innerHTML;
+
+						let targetAdd		= e.target.querySelectorAll("p")[4];
+						let address 		= targetAdd.innerHTML;
+
+						overlay.style.display = "block";
+						
+						
+						
+						let	modalHtml = '<img src="' + image + '">';
+							modalHtml += '<p>' + name + '</p>';
+							modalHtml += '<p>' + email + '</p>';
+						 	modalHtml += '<p>' + city + '</p>';
+						 	modalHtml += '<hr>';
+						 	modalHtml += '<p>' + cell + '</p>';
+						 	modalHtml += '<p>' + address + '</p>';
+
+
+						$("#modal-content").append(modalHtml);
+
+						console.log(image);
+						}
+						
+					});
 
 					//closing the modal overlay.
-					close.addEventListener("click", ()=> overlay.style.display = "none");
+					close.addEventListener("click", function(){
+						overlay.style.display = "none";
+						modal.innerHTML = '';
+					}); 
 
 
 			

@@ -29,6 +29,10 @@ hr {
 	margin:0 auto;
 }
 
+.hidden {
+	display: none;
+}
+
 /*Member Card*/
 
 .member {
