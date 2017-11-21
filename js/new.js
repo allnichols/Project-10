@@ -12,7 +12,7 @@ var options = {
 					var overlay 	= document.getElementById('modal');					
 					var close 		= document.getElementsByClassName('close')[0];
 					var modal 		= document.getElementById('modal-content');
-					var info		= [];
+					
 					
 				
 					
@@ -22,25 +22,8 @@ var options = {
 							let member = data.results
 						for (var i = 0; i < member.length; i++) {	
 								let person  = member[i];
-								let name    = person.name.first + " " + person.name.last;
-								let image   = person.picture.large;
-								let email   = person.email;
-								let city    = person.location.city;
-								let address = person.location.street + " " + ", " +person.location.state + " " + person.location.postcode;
-								
 								memberCard(person);
-								//modalContent(person);
-								 console.log(person.login.username);
-
-								info.push({
-									"index" 	: i,
-									"img"		: image,
-									"name"		: name,
-									"email" 	: email,
-									"city"		: city,
-									"address" 	: address
-								})
-															 
+								 					 
 						}													
 					}
 					
