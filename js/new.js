@@ -2,7 +2,7 @@ $(document).ready(() =>{
 
 
 //AJAX variables
-var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us&inc=name,email,location,picture,username,cell,dob'
+var randomUserAPI = 'https://randomuser.me/api/?results=12&nat=us&inc=name,email,location,picture,login,cell,dob'
 var options = {
 	datatype: 'json'
 }
@@ -30,7 +30,7 @@ var options = {
 								
 								memberCard(person);
 								//modalContent(person);
-								 // console.log(person.dob);
+								 console.log(person.login.username);
 
 								info.push({
 									"index" 	: i,
@@ -54,9 +54,10 @@ var options = {
 							cardHtml += '<li class="email">' + data.email + '</li>';
 							cardHtml += '<li class="city">' + data.location.city + '</li>';	
 							cardHtml += '</ul>';
+							cardHtml += '<p class="hidden">' + data.login.username + '</p>';
 							cardHtml += '<p class="hidden">' + data.cell + '</p>';	
 							cardHtml += '<p class="hidden">' + data.location.street + " " + ", " + data.location.state + " " + data.location.postcode + '</p>';
-							cardHtml += '<p class="hidden">' + data.dob + '</p>';
+							cardHtml += '<p class="hidden">' + data.dob.substring(0, 10).replace(/-/g, "/", -1) + '</p>';
 							cardHtml += '</div>';
 
 
@@ -80,13 +81,16 @@ var options = {
 						let targetCity 		= e.target.querySelectorAll("li")[2];
 						let city 			= targetCity.innerHTML;
 
-						let targetCell		= e.target.querySelectorAll("p")[0];
+						let targetLogin 	= e.target.querySelectorAll("p")[0];
+						let login 			= targetLogin.innerHTML;
+
+						let targetCell		= e.target.querySelectorAll("p")[1];
 						let cell 			= targetCell.innerHTML;
 
-						let targetAdd		= e.target.querySelectorAll("p")[1];
+						let targetAdd		= e.target.querySelectorAll("p")[2];
 						let address 		= targetAdd.innerHTML;
 
-						let targetDOB		= e.target.querySelectorAll("p")[2];
+						let targetDOB		= e.target.querySelectorAll("p")[3];
 						let dob 			= targetDOB.innerHTML;
 
 						overlay.style.display = "block";
@@ -94,13 +98,14 @@ var options = {
 						
 						
 						let	modalHtml = '<img src="' + image + '">';
-							modalHtml += '<p>' + name + '</p>';
+							modalHtml += '<p class="modal-name">' + name + '</p>';
 							modalHtml += '<p>' + email + '</p>';
+							modalHtml += '<p class="login">' + login + '</p>';
 						 	modalHtml += '<p>' + city + '</p>';
 						 	modalHtml += '<hr>';
 						 	modalHtml += '<p>' + cell + '</p>';
 						 	modalHtml += '<p>' + address + '</p>';
-						 	modalHtml += '<p>' + dob + '</p>';
+						 	modalHtml += '<p>Birthday: ' + dob + '</p>';
 
 
 						$("#modal-content").append(modalHtml);

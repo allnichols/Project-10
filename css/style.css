@@ -5,7 +5,8 @@
 
 h1 {
 	padding:15px;
-	margin:10px auto;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 img {
@@ -108,10 +109,12 @@ hr{
 	background-color: white;
 	margin: 15% auto; 
 	padding: 20px;
-	border: 1px solid black;
+	border: 1px solid lightblue;
 	border-radius:8px;
 	width: 80%;
 }
+
+
 
 /*Modal content*/
 
@@ -121,6 +124,14 @@ hr{
 	padding: 15px;
 }
 
+.modal-name {
+  font-weight: bold;
+}
+
+.login {
+	font-style: italic;
+}
+
 #modal-content p {
 	text-transform: capitalize;
 }
@@ -128,6 +139,8 @@ hr{
 #modal-content p:nth-child(3) {
 	text-transform: lowercase;
 }
+
+
 
 /*Closing the window*/
 .close {
