@@ -31,16 +31,18 @@ var options = {
 					function memberCard(data){
 
 						let cardHtml = '<div class="member">';
-							cardHtml += '<img id="image" src="' + data.picture.large + '">';
+							cardHtml += '<img class="image" src="' + data.picture.large + '">';
 							cardHtml += '<ul class="info">';
 							cardHtml += '<li class="name">' + data.name.first + " " + data.name.last + '</li>';
 							cardHtml += '<li class="email">' + data.email + '</li>';
 							cardHtml += '<li class="city">' + data.location.city + '</li>';	
 							cardHtml += '</ul>';
-							cardHtml += '<p class="hidden">' + data.login.username + '</p>';
-							cardHtml += '<p class="hidden">' + data.cell + '</p>';	
-							cardHtml += '<p class="hidden">' + data.location.street + " " + ", " + data.location.state + " " + data.location.postcode + '</p>';
-							cardHtml += '<p class="hidden">' + data.dob.substring(0, 10).replace(/-/g, "/", -1) + '</p>';
+							cardHtml += '<ul class="hidden">';
+							cardHtml += '<li>' + data.login.username + '</li>';
+							cardHtml += '<li>' + data.cell + '</li>';	
+							cardHtml += '<li>' + data.location.street + " " + ", " + data.location.state + " " + data.location.postcode + '</li>';
+							cardHtml += '<li>' + data.dob.substring(0, 10).replace(/-/g, "/", -1) + '</li>';
+							cardHtml += '</ul>';
 							cardHtml += '</div>';
 
 
@@ -49,53 +51,76 @@ var options = {
 					//end of card creation
 
 	
-
+					//opening and adding content to the modal
 				cardWrapper.addEventListener('click', (e) =>{
-					if(e.target.className == 'member') {
+				
+					
+					let target = e.target;
+					console.log(target);
+
+					let modalHtml = '';
+
+					if(target.className == 'member') {
+						overlay.style.display = "block";
+
 						let targetImg		= e.target.querySelector("img");
 						let image			= targetImg.src;
 
-						let targetName 		= e.target.querySelectorAll("li")[0];
-						let name 			= targetName.innerHTML;
+						let targetName 		= e.target.firstChild.nextSibling.innerHTML;
+						let targetInfo		= e.target.firstChild.nextSibling.nextSibling.innerHTML;
 
-						let targetEmail 	= e.target.querySelectorAll("li")[1];
-						let email 			= targetEmail.innerHTML;
+							 modalHtml += '<img src="' + image + '">';
+							 modalHtml += '<ul class="modal-info">';
+							 modalHtml += targetName;
+							 modalHtml += '</ul>';
+							 modalHtml += '<hr>';
+							 modalHtml += '<ul class="new-info">';
+							 modalHtml += targetInfo;
+							 modalHtml += '</ul>';
 
-						let targetCity 		= e.target.querySelectorAll("li")[2];
-						let city 			= targetCity.innerHTML;
 
-						let targetLogin 	= e.target.querySelectorAll("p")[0];
-						let login 			= targetLogin.innerHTML;
-
-						let targetCell		= e.target.querySelectorAll("p")[1];
-						let cell 			= targetCell.innerHTML;
-
-						let targetAdd		= e.target.querySelectorAll("p")[2];
-						let address 		= targetAdd.innerHTML;
-
-						let targetDOB		= e.target.querySelectorAll("p")[3];
-						let dob 			= targetDOB.innerHTML;
-
+						 	$("#modal-content").append(modalHtml);
+						}
+					else if(target.parentElement.className == "member"){
 						overlay.style.display = "block";
-						
-						
-						
-						let	modalHtml = '<img src="' + image + '">';
-							modalHtml += '<p class="modal-name">' + name + '</p>';
-							modalHtml += '<p>' + email + '</p>';
-							modalHtml += '<p class="login">' + login + '</p>';
-						 	modalHtml += '<p>' + city + '</p>';
-						 	modalHtml += '<hr>';
-						 	modalHtml += '<p>' + cell + '</p>';
-						 	modalHtml += '<p>' + address + '</p>';
-						 	modalHtml += '<p>Birthday: ' + dob + '</p>';
 
+						let image 		= target.src;
+						let tName 		= target.nextSibling.innerHTML;
+						let tInfo 		= target.nextSibling.nextSibling.innerHTML;
+
+						modalHtml += '<img src="' + image + '">';
+						modalHtml += '<ul class="modal-info">';
+						modalHtml += tName;
+						modalHtml += '</ul>';
+						modalHtml += '<hr>';
+						modalHtml += '<ul class="new-info">';
+						modalHtml += tInfo;
+						modalHtml += '</ul>';
+	
+						console.log(tInfo);
+						$("#modal-content").append(modalHtml);	
+					} else if(target.parentElement.className == "info"){
+
+						let tInfo 	= target.parentElement.innerHTML;
+						let image 	= target.parentElement.previousSibling.src;
+						let tExtra 	= target.parentElement.nextSibling.innerHTML;
+						overlay.style.display = "block";
+
+						modalHtml += '<img src="' + image + '">';
+						modalHtml += '<ul class="modal-info">';
+						modalHtml += tInfo;
+						modalHtml += '</ul>';
+						modalHtml += '<hr>';
+						modalHtml += '<ul class="new-info">';
+						modalHtml +=  tExtra;
+						modalHtml +=  '</ul>';
 
 						$("#modal-content").append(modalHtml);
-
-						
-						}
-						
+						console.log(tExtra);
+					} else {
+						console.log("wrapper clicked");
+					}
+	
 					});
 
 					//closing the modal overlay.
@@ -103,11 +128,6 @@ var options = {
 						overlay.style.display = "none";
 						modal.innerHTML = '';
 					}); 
-
-					
-
-
-			
 
 $.getJSON(randomUserAPI, options, getMemberData);
 });

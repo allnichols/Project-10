@@ -56,6 +56,24 @@ hr {
 	display: none;
 }
 
+.new-info {
+	list-style-type: none;
+	text-align: center;
+	padding-left: 0;
+}
+
+.new-info li {
+	padding-top: 10px;
+}
+
+.new-info li:first-child {
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.new-info li:nth-child(3){
+	text-transform: capitalize;
+}
 /*End of text styles*/
 
 /*Member Card*/
@@ -114,6 +132,17 @@ hr{
 	width: 80%;
 }
 
+.modal-info {
+	text-align: center;
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.modal-info li {
+	padding-top: 10px;
+}
+
+
 
 
 /*Modal content*/
@@ -124,22 +153,13 @@ hr{
 	padding: 15px;
 }
 
-.modal-name {
+/*.modal-name {
   font-weight: bold;
 }
 
 .login {
 	font-style: italic;
-}
-
-#modal-content p {
-	text-transform: capitalize;
-}
-
-#modal-content p:nth-child(3) {
-	text-transform: lowercase;
-}
-
+}*/
 
 
 /*Closing the window*/
@@ -173,7 +193,7 @@ hr{
 	}
 
 	.modal-card{
-		width: 35%;
+		width: 45%;
 	}
 
 	
@@ -191,10 +211,12 @@ hr{
 		text-align: left;
 	}
 	
-
-	/*.modal-card{
-		width: 35%;
-	}*/
+	.new-info{
+		text-align: center;
+	}
+	.modal-card{
+		width: 40%;
+	}
 }
 
 @media(min-width: 1440px){
