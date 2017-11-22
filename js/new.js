@@ -56,11 +56,12 @@ var options = {
 				
 					
 					let target = e.target;
-					console.log(target);
+					
 
 					let modalHtml = '';
 
 					if(target.className == 'member') {
+						
 						overlay.style.display = "block";
 
 						let targetImg		= e.target.querySelector("img");
@@ -82,6 +83,7 @@ var options = {
 						 	$("#modal-content").append(modalHtml);
 						}
 					else if(target.parentElement.className == "member"){
+
 						overlay.style.display = "block";
 
 						let image 		= target.src;
@@ -97,7 +99,7 @@ var options = {
 						modalHtml += tInfo;
 						modalHtml += '</ul>';
 	
-						console.log(tInfo);
+						
 						$("#modal-content").append(modalHtml);	
 					} else if(target.parentElement.className == "info"){
 
@@ -116,7 +118,7 @@ var options = {
 						modalHtml +=  '</ul>';
 
 						$("#modal-content").append(modalHtml);
-						console.log(tExtra);
+						
 					} else {
 						console.log("wrapper clicked");
 					}
